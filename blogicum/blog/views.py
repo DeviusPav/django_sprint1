@@ -1,4 +1,3 @@
-from django.http import Http404
 from django.shortcuts import render
 
 
@@ -55,7 +54,6 @@ def index(request):
 def post_detail(request, id):
     template = 'blog/detail.html'
     return render(request, template, {'post': posts[id]})
-    
 
 
 def category_posts(request, category_slug):
