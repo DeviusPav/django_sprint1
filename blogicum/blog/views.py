@@ -45,7 +45,7 @@ posts = [
     },
 ]
 
-post_id = {post['id']: post for post in posts}
+POST_KEY = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -54,8 +54,8 @@ def index(request):
 
 def post_detail(request, id):
     try:
-        return render(request, 'blog/detail.html', {'post': post_id[id]})
-    except IndexError:
+        return render(request, 'blog/detail.html', {'post': POST_KEY[id]})
+    except KeyError:
         raise Http404('Страница не найдена')
 
 
